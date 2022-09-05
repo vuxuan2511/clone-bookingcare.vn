@@ -1,0 +1,75 @@
+.login-backgroud {
+    height: 100vh;
+    background: linear-gradient(135deg, rgba(34, 193, 195, 1) 0%, rgba(253, 187, 45, 1) 100%);
+}
+.login-container {
+    width: 400px;
+    height: 450px;
+    position: absolute;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    border-radius: 10px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+}
+.login-content {
+    display: flex;
+    padding: 0 0px;
+}
+.text-login {
+    font-size: 2.4rem;
+    font-weight: 600;
+    margin: 10px auto;
+    text-align: center;
+}
+.login-input {
+    padding: 7px 0;
+    outline: none;
+}
+.form-control:focus {
+    box-shadow: 0 0 0 0.1rem rgba(66, 74, 94, 0.25);
+}
+.btn-login {
+    width: 80%;
+    margin: 10px 5px;
+    background: linear-gradient(135deg, rgba(34, 193, 195, 1) 0%, rgba(253, 187, 45, 1) 100%);
+    height: 40px;
+    border-radius: 10px;
+    font-size: 1.7rem;
+    text-align: center;
+    outline: none;
+    border: none;
+    color: white;
+}
+
+.text-other-login {
+    font-size: 1.2rem;
+}
+.social-login {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.google,
+.facebook {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+}
+.google {
+    background-color: rgb(218, 66, 66);
+    margin-right: 60px;
+}
+.facebook {
+    background-color: rgb(28, 34, 129);
+}
