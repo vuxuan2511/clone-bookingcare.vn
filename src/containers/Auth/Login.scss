@@ -23,9 +23,32 @@
     font-size: 2rem;
     font-weight: 600;
     padding-top: 10px;
+    color: #666;
+}
+.title-login {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 5px;
+    display: flex;
+    i {
+        margin: 0 10px;
+        color: #888;
+        padding-top: 3px;
+    }
 }
 .login-input {
     padding: 7px 0;
+}
+.custom-input-password {
+    position: relative;
+
+    i {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 10px;
+        cursor: pointer;
+    }
 }
 .form-control:focus {
     box-shadow: 0 0 0 0.1rem rgba(52, 121, 226, 0.25);
