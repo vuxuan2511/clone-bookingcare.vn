@@ -5,6 +5,7 @@ import { push } from 'connected-react-router';
 import * as actions from '../../store/actions';
 
 import './Login.scss';
+import { handleLoginApi } from '../../services/userService';
 // import { FormattedMessage } from 'react-intl';
 
 class Login extends Component {
@@ -14,22 +15,46 @@ class Login extends Component {
             username: '',
             password: '',
             isShowPassword: false,
+            errMessage: '',
         };
     }
     handleOnChangeUsername = (event) => {
         this.setState({
             username: event.target.value,
         });
-        console.log(event.target.value);
+        // console.log(event.target.value);
     };
     handleOnChangePassword = (event) => {
         this.setState({
             password: event.target.value,
         });
-        console.log(event.target.value);
+        // console.log(event.target.value);
     };
 
-    handleLogin = () => {};
+    handleLogin = async () => {
+        this.setState({
+            errMessage: '',
+        });
+        try {
+            let data = await handleLoginApi(this.state.username, this.state.password);
+            if (data && data.errCode !== 0) {
+                this.setState({
+                    errMessage: data.message,
+                });
+            }
+            if (data && data.errCode === 0) {
+                this.props.userLoginSuccess(data.user);
+            }
+        } catch (error) {
+            if (error.response) {
+                if (error.response.data) {
+                    this.setState({
+                        errMessage: error.response.data.message,
+                    });
+                }
+            }
+        }
+    };
 
     handleShowHidePassword = () => {
         this.setState({
@@ -58,7 +83,7 @@ class Login extends Component {
                         </div>
                         <div className="col-12 form-group login-input">
                             <div className="title-login">
-                                <i class="fa fa-lock"></i>
+                                <i className="fa fa-lock"></i>
                                 <label>Password:</label>
                             </div>
                             <div className="custom-input-password">
@@ -76,6 +101,9 @@ class Login extends Component {
                                 >
                                     <i className={this.state.isShowPassword ? 'far fa-eye' : 'far fa-eye-slash'}></i>
                                 </span>
+                            </div>
+                            <div className="col-12" style={{ color: 'red' }}>
+                                {this.state.errMessage}
                             </div>
                         </div>
                         <div className=" col-12 text-center">
@@ -114,8 +142,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         navigate: (path) => dispatch(push(path)),
-        adminLoginSuccess: (adminInfo) => dispatch(actions.adminLoginSuccess(adminInfo)),
-        adminLoginFail: () => dispatch(actions.adminLoginFail()),
+        userLoginSuccess: (userInfo) => dispatch(actions.userLoginSuccess(userInfo)),
+        // userLoginFail: () => dispatch(actions.adminLoginFail()),
     };
 };
 
