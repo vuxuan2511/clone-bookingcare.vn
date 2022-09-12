@@ -1,4 +1,29 @@
 {
+    "homeheader": {
+        "specialist": "Medical Specialist",
+        "searchBySpecialty": "Find doctor by specialty",
+        "healthFacilities": "Health facilities",
+        "chooseHospitalClinic": "Choose a hospital clinic",
+        "doctor": "Doctor",
+        "chooseDoctor": "Choose Doctor",
+        "medicalPackage": "Medical Package",
+        "generalHealthCheck": "General Health Check",
+        "support": "Support"
+    },
+    "banner": {
+        "searchDoctor": "Search Doctor",
+        "communityHealth": "Community Health",
+        "comprehensiveHealthCare": "Comprehensive Health Care",
+        "child1": "General Health Check",
+        "child2": "Specialist Medical Examination",
+        "child3": "Remote Medical Examination",
+        "child4": "Medical Test",
+        "child5": "Mental Health",
+        "child6": "Dental Examination",
+        "child7": "Surgery Package",
+        "child8": "Medical Products",
+        "child9": "Corporate Employee Health"
+    },
     "common": {
         "add": "Add",
         "edit": "Edit",
