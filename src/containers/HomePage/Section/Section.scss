@@ -1,0 +1,146 @@
+.section-wrapper {
+    display: block;
+    min-height: 200px;
+    padding-bottom: 25px;
+}
+.section-specialty-container {
+    width: 100%;
+    padding: 0 10%;
+    margin-right: auto;
+    margin-left: auto;
+}
+.section-specialty-content {
+    margin: 30px 10%;
+    display: flex;
+    height: 40px;
+    justify-content: space-between;
+    h {
+        font-size: 1.7rem;
+        font-weight: 700;
+    }
+    button {
+        font-size: 1rem;
+        outline: none;
+        border: none;
+        align-items: center;
+        text-align: center;
+        height: 80%;
+        overflow: hidden;
+        background-color: transparent;
+        border: 1px solid #999;
+        border-radius: 8px;
+        &:hover {
+            cursor: pointer;
+            background-color: #f7d800;
+        }
+    }
+}
+.slick-next:before,
+.slick-prev:before {
+    color: black;
+    font-size: 2rem;
+}
+.slick-prev:before {
+    padding-right: 10px;
+}
+
+.slick-slide {
+    padding: 0 5px 0 5px;
+}
+.slide-description {
+    height: 40px;
+    font-size: 1.1rem;
+    padding: 0 10px;
+    margin: 10px;
+    text-align: center;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+// specialty
+.specialty {
+    background-color: rgb(243, 237, 237);
+    cursor: pointer;
+    .specialty-slide-item {
+        height: 190px;
+        background-size: cover;
+        background-position: center;
+        .specialty-img-item {
+            width: 100%;
+            height: 100%;
+            border-radius: 2px;
+        }
+    }
+}
+//medical Facility
+.medical-facility {
+    background-color: #fff;
+    cursor: pointer;
+    .medical-facility-slide-item {
+        height: 190px;
+        background-size: cover;
+        background-position: center;
+        .medical-facility-img-item {
+            width: 100%;
+            height: 100%;
+            border-radius: 2px;
+        }
+    }
+}
+
+//section-doctor
+.slide-item-doctor {
+    border: 1px solid #999;
+    border-radius: 4px;
+}
+.section-doctor {
+    background-color: rgb(243, 237, 237);
+    .section-doctor-slide-item {
+        flex-direction: column;
+        background-size: cover;
+        background-position: center;
+        .section-doctor-img-item {
+            width: 130px;
+            height: 130px;
+            padding-top: 10px;
+            margin: auto;
+            border-radius: 50%;
+        }
+        .name-doctor {
+            text-align: center;
+            margin: 5px 15px;
+            min-height: 42px;
+        }
+        &:hover {
+            color: rgb(43, 103, 214);
+            cursor: pointer;
+        }
+    }
+}
+// media-youtube
+.media-youtube {
+    display: block;
+    margin: 20px 0;
+    background-color: rgb(243, 237, 237);
+    .media-youtube-title {
+        font-size: 1.7rem;
+        margin: 30px 0;
+        padding: 0 10%;
+    }
+    .media-youtube-content {
+        padding: 10px 10%;
+        width: 100%;
+
+        display: flex;
+        .media-youtube-video {
+            width: 50%;
+            height: 350;
+        }
+    }
+    .media-youtube-description {
+        width: 40%;
+        font-size: 1.1rem;
+        margin-left: 40px;
+    }
+}

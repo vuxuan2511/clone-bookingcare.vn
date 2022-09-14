@@ -2,13 +2,34 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import HomeHeader from './HomeHeader';
 import './HomePage.scss';
+import Specialty from './Section/Specialty';
+import MedicalFacility from './Section/MedicalFacility';
+import SectionDoctor from './Section/SectionDoctor';
+import HandBook from './Section/HandBook';
+import FooterHomePage from './FooterHomePage';
+import MediaYoutube from './Section/MediaYoutube';
 
 class HomePage extends Component {
     render() {
+        const settings = {
+            dots: true,
+            infinite: true,
+            autoplay: true,
+            pauseOnHover: true,
+            speed: 400,
+            autoplaySpeed: 5000,
+            slidesToShow: 4,
+            slidesToScroll: 1,
+        };
         return (
-            <div>
+            <div className="container1">
                 <HomeHeader />
-                <div className="home-page-container"> helooo</div>
+                <Specialty settings={settings} />
+                <MedicalFacility settings={settings} />
+                <SectionDoctor settings={settings} />
+                <HandBook settings={settings} />
+                <MediaYoutube />
+                <FooterHomePage />
             </div>
         );
     }

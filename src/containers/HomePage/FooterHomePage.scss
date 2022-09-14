@@ -1,0 +1,117 @@
+.footer-home-page {
+    display: block;
+    .footer-hp-container {
+        display: flex;
+        padding: 20px 6%;
+        justify-content: center;
+        .footer-about {
+            display: flex;
+            flex-direction: column;
+            .logo-footer {
+                background: url(../../assets/images/bookingcare-logo-header.svg) left center no-repeat;
+                max-width: 200px;
+                height: 40px;
+                cursor: pointer;
+            }
+            .name-company {
+                padding-top: 10px;
+                font-size: 1.3rem;
+                font-weight: 600;
+            }
+            .location-company {
+                font-size: 1.2rem;
+                padding-top: 5px;
+                i {
+                    padding-right: 6px;
+                }
+            }
+            .footer-register {
+                font-size: 1.2rem;
+                padding-top: 5px;
+                i {
+                    padding-right: 6px;
+                }
+            }
+            .img-BCT {
+                background: url(../../assets/images/bo-cong-thuong.svg) left center no-repeat;
+                background-size: 90px;
+                padding-top: 40px;
+            }
+        }
+        .footer-connect {
+            font-size: 1.2rem;
+            ul {
+                list-style: none;
+
+                li {
+                    padding: 5px;
+                    a {
+                        text-decoration: none;
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                    }
+                }
+            }
+        }
+        .footer-address {
+            display: flex;
+            flex-direction: column;
+            .footer-address-item {
+                font-size: 1.1rem;
+                padding-bottom: 20px;
+                span {
+                    display: block;
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+    .cot-6 {
+        width: 50%;
+    }
+    .cot-3 {
+        width: 25%;
+    }
+    .social-footer {
+        display: flex;
+        padding: 0 8%;
+        font-size: 2.5rem;
+        justify-content: space-around;
+        i {
+            padding-right: 30px;
+            cursor: pointer;
+        }
+        .fa-facebook {
+            color: rgb(61, 24, 224);
+        }
+        .fa-youtube {
+            color: rgb(226, 43, 10);
+        }
+        .fa-google {
+            color: rgb(241, 18, 10);
+        }
+        .footer-download {
+            font-size: 1.2rem;
+            text-align: center;
+            padding-top: 15px;
+            a {
+                top: 20px;
+                .fa-mobile {
+                    font-size: 1.2rem;
+                    padding-right: 5px;
+                }
+                text-decoration: none;
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+    .copy-right {
+        background-color: #64b9e5;
+        text-align: center;
+        padding-top: 20px;
+        height: 60px;
+    }
+}

@@ -13,9 +13,9 @@ class HomeHeader extends Component {
         let languagess = this.props.language;
 
         return (
-            <>
+            <div className="container-header">
                 <div className="home-header-container">
-                    <div className="home-header-conten">
+                    <div className="home-header-content">
                         <div className="left-content">
                             <i className="btn-menu-group fas fa-bars"></i>
                             <div className="logo"></div>
@@ -151,7 +151,7 @@ class HomeHeader extends Component {
                         </div>
                     </div>
                 </div>
-            </>
+            </div>
         );
     }
 }
