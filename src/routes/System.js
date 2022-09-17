@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import UserManage from '../containers/System/UserManage';
-import UsersRedux from '../containers/System/UsersRedux';
+import UsersRedux from '../containers/System/Admin/UsersRedux';
 import Header from '../containers/Header/Header';
 
 class System extends Component {

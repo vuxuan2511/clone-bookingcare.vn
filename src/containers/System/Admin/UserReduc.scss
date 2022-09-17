@@ -1,0 +1,54 @@
+.user-redux-container {
+    .user-redux-loading {
+    }
+    .container {
+        .row {
+            .title-manage-user {
+                font-size: 1.5rem;
+                line-height: 1.8rem;
+                font-weight: 600;
+                color: rgb(18, 15, 221);
+            }
+            .user-redux-input {
+                margin-top: 20px;
+                label {
+                    font-weight: 500;
+                    font-size: 1.1rem;
+                    padding-bottom: 3px;
+                }
+                .btn-upload {
+                    display: flex;
+                    .btn-upload-img {
+                        background-color: rgb(209, 209, 209);
+                        border-radius: 4px;
+                        border: 1px solid #ccc;
+                        padding: 2px 6px;
+                        margin-right: 20px;
+                        &:hover {
+                            background-color: #999;
+                            cursor: pointer;
+                        }
+                        i {
+                            padding-right: 6px;
+                        }
+                    }
+                    .preview-img {
+                        width: 100px;
+                        height: 60px;
+                        background: center center no-repeat;
+                        background-size: contain;
+                        cursor: pointer;
+                    }
+                }
+            }
+            .btn-save {
+                .btn {
+                    padding: 5px 20px;
+                    font-size: 1.2rem;
+                    font-weight: 600;
+                    border-radius: 6px;
+                }
+            }
+        }
+    }
+}
