@@ -53,6 +53,7 @@
         "role-id": "Role-Id",
         "image": "Image",
         "choose-flie": "Choose flie",
-        "save": "Save"
+        "save": "Save",
+        "edit": "Update"
     }
 }
