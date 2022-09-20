@@ -12,7 +12,7 @@ import MediaYoutube from './Section/MediaYoutube';
 class HomePage extends Component {
     render() {
         const settings = {
-            dots: true,
+            dots: false,
             infinite: true,
             autoplay: true,
             pauseOnHover: true,

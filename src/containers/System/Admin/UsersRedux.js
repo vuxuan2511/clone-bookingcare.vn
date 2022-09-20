@@ -49,21 +49,21 @@ class UsersRedux extends Component {
             let arrGender = this.props.genderRedux;
             this.setState({
                 genderArr: arrGender,
-                gender: arrGender && arrGender.length > 0 ? arrGender[0].key : '',
+                gender: arrGender && arrGender.length > 0 ? arrGender[0].keyMap : '',
             });
         }
         if (preProps.positionRedux !== this.props.positionRedux) {
             let arrPosition = this.props.positionRedux;
             this.setState({
                 positionArr: arrPosition,
-                position: arrPosition && arrPosition.length > 0 ? arrPosition[0].key : '',
+                position: arrPosition && arrPosition.length > 0 ? arrPosition[0].keyMap : '',
             });
         }
         if (preProps.roleRedux !== this.props.roleRedux) {
             let arrRole = this.props.roleRedux;
             this.setState({
                 roleArr: arrRole,
-                role: arrRole && arrRole.length > 0 ? arrRole[0].key : '',
+                role: arrRole && arrRole.length > 0 ? arrRole[0].keyMap : '',
             });
         }
         if (preProps.listUsers !== this.props.listUsers) {
@@ -77,9 +77,9 @@ class UsersRedux extends Component {
                 lastName: '',
                 phoneNumber: '',
                 address: '',
-                gender: arrGender && arrGender.length > 0 ? arrGender[0].key : '',
-                position: arrPosition && arrPosition.length > 0 ? arrPosition[0].key : '',
-                role: arrRole && arrRole.length > 0 ? arrRole[0].key : '',
+                gender: arrGender && arrGender.length > 0 ? arrGender[0].keyMap : '',
+                position: arrPosition && arrPosition.length > 0 ? arrPosition[0].keyMap : '',
+                role: arrRole && arrRole.length > 0 ? arrRole[0].keyMap : '',
                 avatar: '',
                 previewImgURL: '',
                 action: CRUD_ACTION.CREATE,
@@ -108,7 +108,7 @@ class UsersRedux extends Component {
     handleSaveUser = () => {
         let isvalid = this.checkValidateInput();
         if (isvalid === false) return;
-        let action = this.state.action;
+        let { action } = this.state;
         //redux action create
         if (action === CRUD_ACTION.CREATE) {
             this.props.createNewUser({
@@ -293,7 +293,7 @@ class UsersRedux extends Component {
                                     genders.length > 0 &&
                                     genders.map((item, index) => {
                                         return (
-                                            <option key={index} value={item.key}>
+                                            <option key={index} value={item.keyMap}>
                                                 {language === LANGUAGES.VI ? item.valueVI : item.valueEN}
                                             </option>
                                         );
@@ -315,7 +315,7 @@ class UsersRedux extends Component {
                                     positions.length > 0 &&
                                     positions.map((item, index) => {
                                         return (
-                                            <option key={index} value={item.key}>
+                                            <option key={index} value={item.keyMap}>
                                                 {language === LANGUAGES.VI ? item.valueVI : item.valueEN}
                                             </option>
                                         );
@@ -337,7 +337,7 @@ class UsersRedux extends Component {
                                     roles.length > 0 &&
                                     roles.map((item, index) => {
                                         return (
-                                            <option key={index} value={item.key}>
+                                            <option key={index} value={item.keyMap}>
                                                 {language === LANGUAGES.VI ? item.valueVI : item.valueEN}
                                             </option>
                                         );
