@@ -54,5 +54,13 @@
         "choose-flie": "Chọn ảnh",
         "save": "Lưu",
         "edit": "Cập nhật"
+    },
+    "homepage": {
+        "Popular-medical-specialties": "Chuyên Khoa Phổ Biến",
+        "Outstanding-medical-facility": "Cơ Sở Y Tế Nổi Bật",
+        "out-standing-doctor": "Bác Sĩ Nổi Bật Tuần Qua",
+        "Handbook": "Cẩm Nang",
+        "What-the-Media-Says-About-BookingCare": "Truyền Thông Nói Gì Về BookingCare",
+        "more-btn": "Xem thêm..."
     }
 }

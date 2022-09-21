@@ -13,7 +13,7 @@ class HomePage extends Component {
     render() {
         const settings = {
             dots: false,
-            infinite: true,
+            infinite: false,
             autoplay: true,
             pauseOnHover: true,
             speed: 400,

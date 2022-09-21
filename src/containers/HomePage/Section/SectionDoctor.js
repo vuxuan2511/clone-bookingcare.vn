@@ -5,6 +5,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import * as actions from '../../../store/actions';
 import { LANGUAGES } from '../../../utils';
+import { FormattedMessage } from 'react-intl';
 
 import './Section.scss';
 
@@ -26,21 +27,17 @@ class SectionDoctor extends Component {
         }
     }
     render() {
-        console.log('cehck :', this.state.arrDoctors);
         let arrDoctors = this.state.arrDoctors;
-        arrDoctors = arrDoctors
-            .concat(arrDoctors)
-            .concat(arrDoctors)
-            .concat(arrDoctors)
-            .concat(arrDoctors)
-            .concat(arrDoctors);
-
         let { language } = this.props;
         return (
             <div className="section-wrapper section-doctor">
                 <div className="section-specialty-content">
-                    <h2> Bác Sĩ Nổi Bật Tuần Qua</h2>
-                    <button className="section-more-btn">Xem thêm...</button>
+                    <h2>
+                        <FormattedMessage id="homepage.out-standing-doctor" />
+                    </h2>
+                    <button className="section-more-btn">
+                        <FormattedMessage id="homepage.more-btn" />
+                    </button>
                 </div>
                 <div className="section-specialty-container">
                     <Slider {...this.props.settings}>
@@ -51,8 +48,8 @@ class SectionDoctor extends Component {
                                 if (item.image) {
                                     imagebase64 = new Buffer(item.image, 'base64').toString('binary');
                                 }
-                                let nameVi = `${item.positionData.valueVi},${item.lastName},,${item.firstName}`;
-                                let nameEn = `${item.positionData.valueEn},${item.firstName},${item.lastName}`;
+                                let nameVi = `${item.positionData.valueVi}, ${item.lastName} ${item.firstName}`;
+                                let nameEn = `${item.positionData.valueEn}, ${item.firstName} ${item.lastName}`;
                                 return (
                                     <div className="slide-item-doctor" key={index}>
                                         <div className="section-doctor-slide-item">

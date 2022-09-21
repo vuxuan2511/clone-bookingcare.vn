@@ -55,5 +55,13 @@
         "choose-flie": "Choose flie",
         "save": "Save",
         "edit": "Update"
+    },
+    "homepage": {
+        "Popular-medical-specialties": "Popular Medical Specialties",
+        "Outstanding-medical-facility": "Outstanding Medical Facility",
+        "out-standing-doctor": "Outstanding Doctor",
+        "Handbook": "Handbook",
+        "What-the-Media-Says-About-BookingCare": "What The Media Says About BookingCare",
+        "more-btn": "See more..."
     }
 }
