@@ -3,10 +3,11 @@ import { connect } from 'react-redux';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import { withRouter } from 'react-router';
+
 import * as actions from '../../../store/actions';
 import { LANGUAGES } from '../../../utils';
 import { FormattedMessage } from 'react-intl';
-
 import './Section.scss';
 
 class SectionDoctor extends Component {
@@ -26,6 +27,11 @@ class SectionDoctor extends Component {
             });
         }
     }
+
+    handleViewDetailDoctor = (doctor) => {
+        this.props.history.push(`/detail-doctor/${doctor.id}`);
+    };
+
     render() {
         let arrDoctors = this.state.arrDoctors;
         let { language } = this.props;
@@ -48,10 +54,14 @@ class SectionDoctor extends Component {
                                 if (item.image) {
                                     imagebase64 = new Buffer(item.image, 'base64').toString('binary');
                                 }
-                                let nameVi = `${item.positionData.valueVi}, ${item.lastName} ${item.firstName}`;
-                                let nameEn = `${item.positionData.valueEn}, ${item.firstName} ${item.lastName}`;
+                                let nameEn = `${item.positionData.valueVi}, ${item.lastName} ${item.firstName}`;
+                                let nameVi = `${item.positionData.valueEn}, ${item.firstName} ${item.lastName}`;
                                 return (
-                                    <div className="slide-item-doctor" key={index}>
+                                    <div
+                                        className="slide-item-doctor"
+                                        key={index}
+                                        onClick={() => this.handleViewDetailDoctor(item)}
+                                    >
                                         <div className="section-doctor-slide-item">
                                             <img className="section-doctor-img-item" src={imagebase64} alt="" />
 
@@ -84,4 +94,4 @@ const mapDispatchToProps = (dispatch) => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SectionDoctor);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SectionDoctor));

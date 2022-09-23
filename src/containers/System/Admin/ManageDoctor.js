@@ -8,7 +8,8 @@ import 'react-markdown-editor-lite/lib/index.css';
 import Select from 'react-select';
 
 import './ManageDoctor.scss';
-import { LANGUAGES } from '../../../utils';
+import { CRUD_ACTION, LANGUAGES } from '../../../utils';
+import { getDetailInforDoctor } from '../../../services/userService';
 
 const mdParser = new MarkdownIt(/* Markdown-it options */);
 
@@ -21,6 +22,7 @@ class ManageDoctor extends Component {
             description: '',
             selectedDoctor: null,
             listDoctor: [],
+            hasOldData: false,
         };
     }
     componentDidMount() {
@@ -50,17 +52,35 @@ class ManageDoctor extends Component {
     };
 
     handleSaveContentMarkdown = () => {
+        let { hasOldData } = this.state;
         this.props.saveDetailDoctorRedux({
             contentHTML: this.state.contentHTML,
             contentMarkdown: this.state.contentMarkdown,
             description: this.state.description,
             doctorId: this.state.selectedDoctor.value,
+            action: hasOldData === true ? CRUD_ACTION.EDIT : CRUD_ACTION.CREATE,
         });
-        console.log('check infor input :', this.state);
     };
 
-    handleChange = (selectedDoctor) => {
+    handleChangeSelect = async (selectedDoctor) => {
         this.setState({ selectedDoctor });
+        let res = await getDetailInforDoctor(selectedDoctor.value);
+        if (res && res.errCode === 0 && res.data && res.data.Markdown) {
+            let markdown = res.data.Markdown;
+            this.setState({
+                contentHTML: markdown.contentHTML,
+                contentMarkdown: markdown.contentMarkdown,
+                description: markdown.description,
+                hasOldData: true,
+            });
+        } else {
+            this.setState({
+                contentHTML: '',
+                contentMarkdown: '',
+                description: '',
+                hasOldData: false,
+            });
+        }
     };
 
     handleOnChangeDescription = (event) => {
@@ -77,16 +97,18 @@ class ManageDoctor extends Component {
                 let object = {};
                 let labelVi = `${item.firstName} ${item.lastName}`;
                 let labelEn = `${item.lastName} ${item.firstName}`;
-                object.label = language === LANGUAGES.VI ? labelVi : labelEn;
-                object.value = item.id;
-                result.push(object);
+                return (
+                    (object.label = language === LANGUAGES.VI ? labelVi : labelEn),
+                    (object.value = item.id),
+                    result.push(object)
+                );
             });
         }
         return result;
     };
 
     render() {
-        console.log('check props :', this.state);
+        let { hasOldData } = this.state;
         return (
             <div className="container manage-doctor-container">
                 <div className="manage-doctor-title ">
@@ -97,7 +119,7 @@ class ManageDoctor extends Component {
                         <label>Chọn Bác Sĩ</label>
                         <Select
                             value={this.state.selectedDoctor}
-                            onChange={this.handleChange}
+                            onChange={this.handleChangeSelect}
                             options={this.state.listDoctor}
                         />
                     </div>
@@ -118,13 +140,18 @@ class ManageDoctor extends Component {
                         style={{ height: '400px' }}
                         renderHTML={(text) => mdParser.render(text)}
                         onChange={this.handleEditorChange}
+                        value={this.state.contentMarkdown}
                     />
                 </div>
                 <button
                     onClick={() => this.handleSaveContentMarkdown()}
-                    className="btn-save-content-doctor btn btn-primary"
+                    className={
+                        hasOldData === true
+                            ? 'btn-save-content-doctor btn btn-warning'
+                            : 'btn-create-content-doctor btn btn-primary'
+                    }
                 >
-                    Lưu
+                    {hasOldData === true ? <>Lưu Thông Tin</> : <>Tạo Thông Tin</>}
                 </button>
             </div>
         );

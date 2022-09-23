@@ -23,12 +23,18 @@ class HomePage extends Component {
         };
         return (
             <div className="container1">
-                <HomeHeader />
+                <HomeHeader isShowBanner={true} />
+
                 <Specialty settings={settings} />
+
                 <MedicalFacility settings={settings} />
+
                 <SectionDoctor settings={settings} />
+
                 <HandBook settings={settings} />
+
                 <MediaYoutube />
+
                 <FooterHomePage />
             </div>
         );
