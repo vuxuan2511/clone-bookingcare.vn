@@ -27,7 +27,7 @@ class HomeHeader extends Component {
                         <div className="left-content">
                             <i className="btn-menu-group fas fa-bars"></i>
 
-                            <image className="logo" onClick={() => this.returnToHome()}></image>
+                            <div className="logo" onClick={() => this.returnToHome()}></div>
                         </div>
                         <div className="center-content">
                             <div className="child-content">
@@ -106,55 +106,55 @@ class HomeHeader extends Component {
                             <div className="options">
                                 <a href="/" className="option-link">
                                     <div className="item">
-                                        <image className="option-img1"></image>
+                                        <div className="option-img1"></div>
                                         <FormattedMessage id="banner.child1" />
                                     </div>
                                 </a>
                                 <a href="/" className="option-link">
                                     <div className="item">
-                                        <image className="option-img2"></image>
+                                        <div className="option-img2"></div>
                                         <FormattedMessage id="banner.child2" />
                                     </div>
                                 </a>
                                 <a href="/" className="option-link">
                                     <div className="item">
-                                        <image className="option-img3"></image>
+                                        <div className="option-img3"></div>
                                         <FormattedMessage id="banner.child3" />
                                     </div>
                                 </a>
                                 <a href="/" className="option-link">
                                     <div className="item">
-                                        <image className="option-img4"></image>
+                                        <div className="option-img4"></div>
                                         <FormattedMessage id="banner.child4" />
                                     </div>
                                 </a>
                                 <a href="/" className="option-link">
                                     <div className="item">
-                                        <image className="option-img5"></image>
+                                        <div className="option-img5"></div>
                                         <FormattedMessage id="banner.child5" />
                                     </div>
                                 </a>
                                 <a href="/" className="option-link">
                                     <div className="item">
-                                        <image className="option-img6"></image>
+                                        <div className="option-img6"></div>
                                         <FormattedMessage id="banner.child6" />
                                     </div>
                                 </a>
                                 <a href="/" className="option-link">
                                     <div className="item">
-                                        <image className="option-img7"></image>
+                                        <div className="option-img7"></div>
                                         <FormattedMessage id="banner.child7" />
                                     </div>
                                 </a>
                                 <a href="/" className="option-link">
                                     <div className="item">
-                                        <image className="option-img8"></image>
+                                        <div className="option-img8"></div>
                                         <FormattedMessage id="banner.child8" />
                                     </div>
                                 </a>
                                 <a href="/" className="option-link">
                                     <div className="item">
-                                        <image className="option-img9"></image>
+                                        <div className="option-img9"></div>
                                         <FormattedMessage id="banner.child9" />
                                     </div>
                                 </a>
