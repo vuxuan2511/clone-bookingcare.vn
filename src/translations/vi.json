@@ -65,5 +65,11 @@
         "Handbook": "Cẩm Nang",
         "What-the-Media-Says-About-BookingCare": "Truyền Thông Nói Gì Về BookingCare",
         "more-btn": "Xem thêm..."
+    },
+    "manage-schedule": {
+        "title": "Quản lý khám bệnh bác sĩ",
+        "choose-doctor": "Chọn Bác Sĩ",
+        "choose-date": "Chọn Ngày",
+        "save": "Lưu Thông Tin"
     }
 }

@@ -1,0 +1,32 @@
+.manage-schedule-container {
+    display: block;
+    .manage-schedule-title {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 1.8rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        color: rgb(18, 18, 22);
+    }
+    .pick-hour-container {
+        margin: 50px 0;
+        gap: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        .btn-schedule {
+            background-color: #fff8ae;
+            padding: 10px 15px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            outline: none;
+            border: none;
+            border-radius: 5px;
+            &:hover {
+                background-color: #eee044;
+            }
+            &:focus {
+                box-shadow: 0 0 0 0.08 rgba(14, 52, 109, 0.25);
+            }
+        }
+    }
+}

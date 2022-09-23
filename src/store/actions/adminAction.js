@@ -265,3 +265,27 @@ export const saveDetailDoctor = (data) => {
         }
     };
 };
+
+// fetch allcodes schedule hour
+export const fetchAllScheduleTimes = () => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await getAllcodeService('TIME');
+            if (res && res.errCode === 0) {
+                dispatch({
+                    type: actionTypes.FETCH_AllCODES_SCHEDULE_TIMES_SUCCESS,
+                    timeData: res.data,
+                });
+            } else {
+                dispatch({
+                    type: actionTypes.FETCH_ALLCODES_SCHEDULE_TIMES_FAIL,
+                });
+            }
+        } catch (e) {
+            console.log('FETCH_ALLCODES_SCHEDULE_TIMES_FAIL:', e);
+            dispatch({
+                type: actionTypes.FETCH_ALLCODES_SCHEDULE_TIMES_FAIL,
+            });
+        }
+    };
+};

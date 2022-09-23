@@ -66,5 +66,11 @@
         "Handbook": "Handbook",
         "What-the-Media-Says-About-BookingCare": "What The Media Says About BookingCare",
         "more-btn": "See more..."
+    },
+    "manage-schedule": {
+        "title": "Manage doctor's visits",
+        "choose-doctor": "Choose Doctor",
+        "choose-date": "Choose Date",
+        "save": "Save"
     }
 }
