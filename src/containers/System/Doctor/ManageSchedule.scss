@@ -14,11 +14,10 @@
         display: flex;
         flex-wrap: wrap;
         .btn-schedule {
-            background-color: #fff8ae;
             padding: 10px 15px;
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 500;
-            outline: none;
+            outline: 1px solid #ccc;
             border: none;
             border-radius: 5px;
             &:hover {
@@ -26,6 +25,10 @@
             }
             &:focus {
                 box-shadow: 0 0 0 0.08 rgba(14, 52, 109, 0.25);
+            }
+            &.active {
+                background-color: #eee044;
+                border: 1px solid rgb(124, 235, 143);
             }
         }
     }
