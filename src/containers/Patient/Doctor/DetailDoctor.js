@@ -5,6 +5,8 @@ import { LANGUAGES } from '../../../utils';
 import { connect } from 'react-redux';
 import HomeHeader from '../../HomePage/HomeHeader';
 import { getDetailInforDoctor } from '../../../services/userService';
+
+import DoctorSchedule from './DoctorSchedule';
 import './DetailDoctor.scss';
 
 class DetailDoctor extends Component {
@@ -54,7 +56,25 @@ class DetailDoctor extends Component {
                             </div>
                         </div>
                     </div>
-                    <div className="schedule-doctor"></div>
+                    <div className="schedule-doctor">
+                        <div className="schedule-doctor-content-left">
+                            <DoctorSchedule
+                                detailDoctorFromParent={detailDoctor && detailDoctor.id ? detailDoctor.id : -1}
+                            />
+                        </div>
+                        <div className="schedule-doctor-content-right">
+                            <div className="">Địa chỉ khám</div>
+                            <div className="">Bệnh viện Đa khoa An Việt</div>
+                            <div className="">Số 1E Trường Chinh - Thanh Xuân - Hà Nội</div>
+                            <div className="">
+                                Giá Khám:400.000đ.
+                                <a href="/">Xem chi tiết</a>
+                            </div>
+                            <div className="">
+                                Loại bảo hiểm được áp dụng. <a href="/">Xem chi tiết</a>
+                            </div>
+                        </div>
+                    </div>
                     <div className="detail-infor-doctor">
                         {detailDoctor && detailDoctor.Markdown && detailDoctor.Markdown.contentHTML && (
                             <div dangerouslySetInnerHTML={{ __html: detailDoctor.Markdown.contentHTML }}></div>

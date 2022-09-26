@@ -5,11 +5,11 @@ import { toast } from 'react-toastify';
 import * as actions from '../../../store/actions';
 import DatePicker from '../../../components/Input/DatePicker';
 import Select from 'react-select';
-import { LANGUAGES, dateFormat } from '../../../utils';
+import { LANGUAGES } from '../../../utils';
+import { saveBulkScheduleDoctor } from '../../../services/userService';
 
 import './ManageSchedule.scss';
 import _ from 'lodash';
-import moment from 'moment';
 
 class ManageSchedule extends Component {
     constructor(props) {
@@ -32,7 +32,7 @@ class ManageSchedule extends Component {
                 listDoctor: dataSelect,
             });
         }
-        if (preProps.language !== this.props.language) {
+        if (this.props.language !== preProps.language) {
             let dataSelect = this.buildDataInput(this.props.allDoctors);
             this.setState({
                 listDoctor: dataSelect,
@@ -87,7 +87,7 @@ class ManageSchedule extends Component {
         }
     };
 
-    handleSaveSchedule = () => {
+    handleSaveSchedule = async () => {
         let { rangeTime, selectedDoctor, currentDate } = this.state;
         let result = [];
         if (!currentDate) {
@@ -98,15 +98,17 @@ class ManageSchedule extends Component {
             toast.error('Invalid seclected doctor !');
             return;
         }
-        let formatDate = moment(currentDate).format(dateFormat.SEND_TO_SERVER);
+        // let formatedDate = moment(currentDate).format(dateFormat.SEND_TO_SERVER);
+
+        let formatedDate = new Date(currentDate).getTime();
         if (rangeTime && rangeTime.length > 0) {
             let selectedTime = rangeTime.filter((item) => item.isSelected === true);
             if (selectedTime && selectedTime.length > 0) {
                 selectedTime.map((schedule) => {
                     let object = {};
                     object.doctorId = selectedDoctor.value;
-                    object.date = formatDate;
-                    object.time = schedule.keyMap;
+                    object.date = formatedDate;
+                    object.timeType = schedule.keyMap;
                     return result.push(object);
                 });
             } else {
@@ -114,6 +116,12 @@ class ManageSchedule extends Component {
                 return;
             }
         }
+        let res = await saveBulkScheduleDoctor({
+            arrSchedule: result,
+            doctorId: selectedDoctor.value,
+            formatedDate: formatedDate,
+        });
+        console.log('check res:', res);
     };
 
     render() {
