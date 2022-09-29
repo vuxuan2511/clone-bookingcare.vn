@@ -121,7 +121,11 @@ class ManageSchedule extends Component {
             doctorId: selectedDoctor.value,
             formatedDate: formatedDate,
         });
-        console.log('check res:', res);
+        if (res && res.errCode === 0) {
+            toast.success('save infor success!');
+        } else {
+            toast.error('error . donot save infor');
+        }
     };
 
     render() {

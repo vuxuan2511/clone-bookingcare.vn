@@ -14,12 +14,16 @@ class DetailDoctor extends Component {
         super(props);
         this.state = {
             detailDoctor: {},
+            currentDoctorId: -1,
         };
     }
     async componentDidMount() {
         if (this.props.match && this.props.match.params && this.props.match.params.id) {
             let id = this.props.match.params.id;
             let res = await getDetailInforDoctor(id);
+            this.setState({
+                currentDoctorId: id,
+            });
             if (res && res.data) {
                 this.setState({
                     detailDoctor: res.data,
@@ -58,19 +62,17 @@ class DetailDoctor extends Component {
                     </div>
                     <div className="schedule-doctor">
                         <div className="schedule-doctor-content-left">
-                            <DoctorSchedule
-                                detailDoctorFromParent={detailDoctor && detailDoctor.id ? detailDoctor.id : -1}
-                            />
+                            <DoctorSchedule detailDoctorFromParent={this.state.currentDoctorId} />
                         </div>
                         <div className="schedule-doctor-content-right">
-                            <div className="">Địa chỉ khám</div>
-                            <div className="">Bệnh viện Đa khoa An Việt</div>
-                            <div className="">Số 1E Trường Chinh - Thanh Xuân - Hà Nội</div>
-                            <div className="">
-                                Giá Khám:400.000đ.
+                            <div className="content-right-up">Địa chỉ khám</div>
+                            <div className="content-right-name">Bệnh viện Đa khoa An Việt</div>
+                            <div className="content-right-address">Số 1E Trường Chinh - Thanh Xuân - Hà Nội</div>
+                            <div className="content-right-price">
+                                Giá Khám:<span> 400.000đ.</span>
                                 <a href="/">Xem chi tiết</a>
                             </div>
-                            <div className="">
+                            <div className="content-right-down">
                                 Loại bảo hiểm được áp dụng. <a href="/">Xem chi tiết</a>
                             </div>
                         </div>

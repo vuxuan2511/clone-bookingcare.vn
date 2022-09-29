@@ -1,6 +1,6 @@
 .manage-doctor-container {
     .manage-doctor-title {
-        margin: 30px 0;
+        margin: 15px 0;
         text-align: center;
     }
     .manage-doctor-editor {
@@ -8,13 +8,31 @@
     .more-infor {
         display: flex;
         justify-content: space-between;
-        margin-bottom: 20px;
+        label {
+            font-size: 1.1rem;
+            padding-bottom: 4px;
+        }
         .content-left {
             width: 40%;
             margin-right: 10px;
         }
         .content-right {
             width: 50%;
+        }
+    }
+    .more-infor-extra-doctor {
+        .input-select {
+            margin-top: 20px;
+            label {
+                font-size: 1.1rem;
+                padding-bottom: 4px;
+            }
+        }
+    }
+    .manage-doctor-editor {
+        label {
+            font-size: 1.1rem;
+            padding-bottom: 4px;
         }
     }
     .btn-save-content-doctor,

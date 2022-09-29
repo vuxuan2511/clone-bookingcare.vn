@@ -5,9 +5,8 @@
 
     .intro-doctor {
         display: flex;
-        padding: 0 10px 20px;
-        border-bottom: 1px solid #ccc;
-        padding: 0 10%;
+
+        padding: 5px 10% 20px;
         .intro-doctor-content-left {
             width: 20%;
             .intro-doctor-img {
@@ -39,16 +38,51 @@
     .schedule-doctor {
         padding: 0 10%;
         display: flex;
-
+        border-bottom: 1px solid #ccc;
         .schedule-doctor-content-left {
             width: 60%;
-            border: 1px solid red;
         }
-
         .schedule-doctor-content-right {
             width: 40%;
-            padding: 10px;
-            border: 1px solid red;
+            padding: 40px 10px;
+            margin: 20px 0;
+            border-left: 1px solid #ccc;
+            .content-right-up {
+                font-size: 1.2rem;
+                font-weight: 600;
+                padding-bottom: 5px;
+            }
+            .content-right-name {
+                font-size: 1.1rem;
+                font-weight: 600;
+                padding-bottom: 5px;
+            }
+            .content-right-address {
+                padding-bottom: 5px;
+            }
+            .content-right-price {
+                padding-bottom: 5px;
+                span {
+                    font-size: 1.2rem;
+                    font-weight: 600;
+                    padding-right: 10px;
+                }
+                a {
+                    text-decoration: none;
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+            .content-right-down {
+                a {
+                    padding-left: 10px;
+                    text-decoration: none;
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
         }
     }
     .detail-infor-doctor {

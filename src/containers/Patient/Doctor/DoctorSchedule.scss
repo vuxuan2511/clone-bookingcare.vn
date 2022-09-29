@@ -1,0 +1,77 @@
+.doctor-schedule-container {
+    padding-bottom: 30px;
+    .all-schedule {
+        padding: 10px;
+
+        select {
+            border: none;
+            border-bottom: 1px solid #333;
+            padding-bottom: 4px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: rgb(48, 21, 122);
+            height: 30px;
+            outline: none;
+        }
+    }
+    .all-avaliable-time-calendar {
+        padding: 10px;
+        .text-calendar {
+            padding: 0 10px 10px 0;
+            span {
+                font-size: 1.2rem;
+                font-weight: 600;
+                i {
+                    padding-right: 5px;
+                }
+            }
+        }
+        .time-content-schedule-doctor {
+            display: flex;
+            flex-direction: column;
+            .time-schedule {
+                display: flex;
+                gap: 15px 30px;
+                flex-wrap: wrap;
+
+                button {
+                    outline: none;
+                    border: 1px solid #ccc;
+                    border-radius: 4px;
+                    background-color: #eee044;
+                    font-size: 1.1rem;
+                    color: #333;
+                    text-align: center;
+                    &:hover {
+                        cursor: pointer;
+                        background-color: #45c3d2;
+                        font-weight: 600;
+                        color: white;
+                    }
+                }
+                .btn-vie {
+                    min-width: 120px;
+                    padding: 5px 10px;
+                }
+                .btn-eng {
+                    min-width: 160px;
+                    padding: 5px 5px;
+                }
+            }
+            .title-book-free {
+                padding-top: 20px;
+                display: flex;
+                font-size: 1.1rem;
+                i {
+                    padding: 0 5px;
+                }
+            }
+            .doctor-no-choose {
+                padding-top: 30px;
+                font-style: italic;
+                font-size: 1.2rem;
+                font-weight: 500;
+            }
+        }
+    }
+}
