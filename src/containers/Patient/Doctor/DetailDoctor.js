@@ -7,6 +7,7 @@ import HomeHeader from '../../HomePage/HomeHeader';
 import { getDetailInforDoctor } from '../../../services/userService';
 
 import DoctorSchedule from './DoctorSchedule';
+import DoctorExtraInfor from './DoctorExtraInfor';
 import './DetailDoctor.scss';
 
 class DetailDoctor extends Component {
@@ -65,16 +66,7 @@ class DetailDoctor extends Component {
                             <DoctorSchedule detailDoctorFromParent={this.state.currentDoctorId} />
                         </div>
                         <div className="schedule-doctor-content-right">
-                            <div className="content-right-up">Địa chỉ khám</div>
-                            <div className="content-right-name">Bệnh viện Đa khoa An Việt</div>
-                            <div className="content-right-address">Số 1E Trường Chinh - Thanh Xuân - Hà Nội</div>
-                            <div className="content-right-price">
-                                Giá Khám:<span> 400.000đ.</span>
-                                <a href="/">Xem chi tiết</a>
-                            </div>
-                            <div className="content-right-down">
-                                Loại bảo hiểm được áp dụng. <a href="/">Xem chi tiết</a>
-                            </div>
+                            <DoctorExtraInfor detailDoctorFromParent={this.state.currentDoctorId} />
                         </div>
                     </div>
                     <div className="detail-infor-doctor">

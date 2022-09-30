@@ -79,6 +79,13 @@
             "schedule-no-choose": "The doctor does not have an appointment during this time, please choose another date ",
             "choose": "Choose",
             "and-booking-free": "and booking (free)"
+        },
+        "extra-infor-doctor": {
+            "medical-address": "medical address",
+            "medical-examination-price": "Medical Examination Price",
+            "See-details": "See details",
+            "hide-price-list": "Hide price list",
+            "payment": "The patient can pay the cost in the form of:"
         }
     },
     "admin": {
@@ -88,7 +95,13 @@
             "infor-introduce": "Introduction Information: ",
             "detail-infor-doctor": "Detailed description of the Doctor",
             "create-infor": "Create Infor",
-            "save-infor": "Save Infor"
+            "save-infor": "Save Infor",
+            "price": "Price of Medical Examination",
+            "payment": "Payment Methods",
+            "province": "Province - City",
+            "clinic-name": "Clinic Name",
+            "address": "Address Clinic",
+            "note": "Note"
         }
     }
 }

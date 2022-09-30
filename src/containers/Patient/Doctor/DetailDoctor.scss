@@ -44,45 +44,9 @@
         }
         .schedule-doctor-content-right {
             width: 40%;
-            padding: 40px 10px;
+            padding: 10px 20px;
             margin: 20px 0;
             border-left: 1px solid #ccc;
-            .content-right-up {
-                font-size: 1.2rem;
-                font-weight: 600;
-                padding-bottom: 5px;
-            }
-            .content-right-name {
-                font-size: 1.1rem;
-                font-weight: 600;
-                padding-bottom: 5px;
-            }
-            .content-right-address {
-                padding-bottom: 5px;
-            }
-            .content-right-price {
-                padding-bottom: 5px;
-                span {
-                    font-size: 1.2rem;
-                    font-weight: 600;
-                    padding-right: 10px;
-                }
-                a {
-                    text-decoration: none;
-                    &:hover {
-                        text-decoration: underline;
-                    }
-                }
-            }
-            .content-right-down {
-                a {
-                    padding-left: 10px;
-                    text-decoration: none;
-                    &:hover {
-                        text-decoration: underline;
-                    }
-                }
-            }
         }
     }
     .detail-infor-doctor {
