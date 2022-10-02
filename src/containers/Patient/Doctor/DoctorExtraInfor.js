@@ -42,7 +42,7 @@ class DoctorExtraInfor extends Component {
         if (extraInfor && extraInfor.priceTypeData && language === LANGUAGES.EN) {
             price = extraInfor.priceTypeData.valueEN;
         }
-        console.log(extraInfor);
+
         return (
             <div className="doctor-extra-infor-container">
                 <div className="content-up">
