@@ -3,12 +3,14 @@ import { connect } from 'react-redux';
 // import { FormattedMessage } from 'react-intl';
 // import * as actions from '../../../store/actions';
 // import Select from 'react-select';
-import { LANGUAGES, CommonUtils } from '../../../utils';
+import { toast } from 'react-toastify';
+import { CommonUtils } from '../../../utils';
 import MdEditor from 'react-markdown-editor-lite';
 import 'react-markdown-editor-lite/lib/index.css';
 
 import './ManageSpecialty.scss';
 import MarkdownIt from 'markdown-it';
+import { createNewSpecialty } from '../../../services/userService';
 
 const mdParser = new MarkdownIt();
 
@@ -51,8 +53,24 @@ class ManageSpecialty extends Component {
         }
     };
 
-    handleSaveSpecialty = () => {
-        console.log('check :', this.state);
+    handleSaveSpecialty = async () => {
+        let res = await createNewSpecialty({
+            name: this.state.name,
+            imageBase64: this.state.imageBase64,
+            descriptionHTML: this.state.descriptionHTML,
+            descriptionMarkdown: this.state.descriptionMarkdown,
+        });
+        if (res && res.errCode === 0) {
+            toast.success('add new specialty succsess!');
+            this.setState({
+                name: '',
+                imageBase64: '',
+                descriptionHTML: '',
+                descriptionMarkdown: '',
+            });
+        } else {
+            toast.error('Something wrong, plz try again ');
+        }
     };
 
     render() {
@@ -61,7 +79,7 @@ class ManageSpecialty extends Component {
                 <div className="manage-specialty-title">Quản Lý Chuyên Khoa</div>
                 <div className="form-input-manage-specialty">
                     <div className="col-6 form-group">
-                        <label>Ten chuyen khoa</label>
+                        <label>Tên Chuyên Khoa</label>
                         <input
                             type="text"
                             className="form-control"

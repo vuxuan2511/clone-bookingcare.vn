@@ -52,7 +52,7 @@ class SectionDoctor extends Component {
                             arrDoctors.map((item, index) => {
                                 let imagebase64 = '';
                                 if (item.image) {
-                                    imagebase64 = new Buffer(item.image, 'base64').toString('binary');
+                                    imagebase64 = new Buffer.from(item.image, 'base64').toString('binary');
                                 }
                                 let nameEn = `${item.positionData.valueVi}, ${item.lastName} ${item.firstName}`;
                                 let nameVi = `${item.positionData.valueEn}, ${item.firstName} ${item.lastName}`;
