@@ -28,7 +28,7 @@ export const adminMenu = [
         menus: [
             {
                 name: 'menu.admin.clinic-manage',
-                link: '/system/clinic-manage',
+                link: '/system/manage-clinic',
             },
         ],
     },
@@ -38,7 +38,7 @@ export const adminMenu = [
         menus: [
             {
                 name: 'menu.admin.specialty-manage',
-                link: '/system/specialty-manage',
+                link: '/system/manage-specialty',
             },
         ],
     },
@@ -48,7 +48,7 @@ export const adminMenu = [
         menus: [
             {
                 name: 'menu.admin.handbook-manage',
-                link: '/system/handbook-manage',
+                link: '/system/manage-handbook',
             },
         ],
     },
