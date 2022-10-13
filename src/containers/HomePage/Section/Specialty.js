@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
-//
+import { withRouter } from 'react-router';
 // import * as actions from '../../../store/actions';
 // import { LANGUAGES } from '../../../utils';
 import { FormattedMessage } from 'react-intl';
@@ -27,6 +26,12 @@ class Specialty extends Component {
             });
         }
     }
+    handleViewDetailSpecialty = (item) => {
+        if (this.props.history) {
+            this.props.history.push(`/detail-specialty/${item.id}`);
+        }
+    };
+
     render() {
         let { dataSpecialty } = this.state;
 
@@ -48,7 +53,11 @@ class Specialty extends Component {
                                     imagebase64 = new Buffer.from(item.image, 'base64').toString('binary');
                                 }
                                 return (
-                                    <div className="slide-item" key={index}>
+                                    <div
+                                        className="slide-item"
+                                        key={index}
+                                        onClick={() => this.handleViewDetailSpecialty(item)}
+                                    >
                                         <div className="specialty-slide-item">
                                             <img className="specialty-img-item" src={imagebase64} alt={item.name} />
                                         </div>
@@ -74,4 +83,4 @@ const mapDispatchToProps = (dispatch) => {
     return {};
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Specialty);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Specialty));

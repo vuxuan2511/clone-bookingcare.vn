@@ -1,0 +1,39 @@
+.detail-specialty {
+    margin-top: 70px;
+    .detail-specialty-container {
+        .infor-specialty {
+            .description-specialty {
+                padding-top: 10px;
+                font-size: 1.1rem;
+                background-color: #fff;
+            }
+            .search-sp-doctor {
+            }
+        }
+        .list-doctor {
+            .infor-doctor {
+                background-color: #fff;
+                display: flex;
+                margin: 10px 0;
+                padding: 0 5px;
+                border-radius: 10px;
+                box-shadow: 0 1px 6px rgba(32, 33, 36, 28%);
+                .content-left {
+                    margin: 10px 0;
+                    width: 50%;
+                    border-right: 1px solid #ccc;
+                }
+                .content-right {
+                    width: 50%;
+                    .doctor-schedule-container {
+                        padding-bottom: 5px;
+                        border-bottom: 1px solid #ccc;
+                    }
+                    .doctor-extra-infor-container {
+                        padding: 0 5px;
+                    }
+                }
+            }
+        }
+    }
+}

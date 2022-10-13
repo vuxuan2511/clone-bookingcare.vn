@@ -13,7 +13,16 @@ class DoctorExtraInfor extends Component {
             extraInfor: '',
         };
     }
-    componentDidMount() {}
+    async componentDidMount() {
+        if (this.props.detailDoctorFromParent) {
+            let res = await getExtraInforDoctorById(this.props.detailDoctorFromParent);
+            if (res && res.errCode === 0) {
+                this.setState({
+                    extraInfor: res.data,
+                });
+            }
+        }
+    }
     async componentDidUpdate(preProps, preState, snapshot) {
         if (this.props.language !== preProps.language) {
         }
@@ -78,8 +87,7 @@ class DoctorExtraInfor extends Component {
                                     </div>
                                     <div> {price}</div>
                                 </div>
-                                Được ưu tiên khám trước khi đặt khám qua BookingCare. Giá khám cho người nước ngoài là
-                                30 USD
+                                {extraInfor.note}
                             </div>
                             <div className="text-3">
                                 <FormattedMessage id="patient.extra-infor-doctor.payment" />
