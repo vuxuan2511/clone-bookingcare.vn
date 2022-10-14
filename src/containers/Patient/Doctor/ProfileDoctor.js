@@ -7,6 +7,7 @@ import { getProfileDoctorById } from '../../../services/userService';
 import './ProfileDoctor.scss';
 import _ from 'lodash';
 import moment from 'moment/moment';
+import { Link } from 'react-router-dom';
 
 class ProfileDoctor extends Component {
     constructor(props) {
@@ -66,7 +67,7 @@ class ProfileDoctor extends Component {
     };
 
     render() {
-        let { language, isShowDescription, dataTime } = this.props;
+        let { language, isShowDescription, dataTime, isShowPrice, isShowLinkDetail, doctorId } = this.props;
         let { dataProfile } = this.state;
         let nameVi = '';
         let nameEn = '';
@@ -103,9 +104,16 @@ class ProfileDoctor extends Component {
                         </div>
                     </div>
                 </div>
-                <div className="price">
-                    <label>Giá Khám: {language === LANGUAGES.VI ? priceVi : priceEn}</label>
-                </div>
+                {isShowLinkDetail === true && (
+                    <div className="view-doctor-detail">
+                        <Link to={`/detail-doctor/${doctorId}`}>Xem Thêm</Link>
+                    </div>
+                )}
+                {isShowPrice === true && (
+                    <div className="price">
+                        <label>Giá Khám: {language === LANGUAGES.VI ? priceVi : priceEn}</label>
+                    </div>
+                )}
             </div>
         );
     }

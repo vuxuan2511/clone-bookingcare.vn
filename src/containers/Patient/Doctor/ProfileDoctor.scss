@@ -36,6 +36,16 @@
             }
         }
     }
+    .view-doctor-detail {
+        padding-top: 30px;
+        a {
+            text-decoration: none;
+            font-size: 1.1rem;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
     .price {
         padding-top: 10px;
         label {

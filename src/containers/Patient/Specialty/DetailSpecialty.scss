@@ -1,13 +1,24 @@
 .detail-specialty {
     margin-top: 70px;
+    background-color: rgb(238, 238, 238);
     .detail-specialty-container {
         .infor-specialty {
             .description-specialty {
+                padding: 5px;
                 padding-top: 10px;
                 font-size: 1.1rem;
                 background-color: #fff;
+                box-shadow: 0 1px 6px rgba(50, 51, 54, 0.1);
+                border-radius: 6px;
             }
             .search-sp-doctor {
+                padding-top: 10px;
+                select {
+                    padding: 5px;
+                    outline: none;
+                    border-radius: 6px;
+                    border: 1px solid #ccc;
+                }
             }
         }
         .list-doctor {

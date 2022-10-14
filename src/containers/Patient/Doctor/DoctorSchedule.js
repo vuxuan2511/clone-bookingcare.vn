@@ -18,12 +18,18 @@ class DoctorSchedule extends Component {
             dataScheduleTime: {},
         };
     }
-    componentDidMount() {
+    async componentDidMount() {
         let { language } = this.props;
         let allDays = this.getArrDay(language);
         this.setState({
             allDays: allDays,
         });
+        if (this.props.detailDoctorFromParent) {
+            let res = await getScheduleDoctorByDate(this.props.detailDoctorFromParent, allDays[0].value);
+            this.setState({
+                allAvalableTime: res.data ? res.data : [],
+            });
+        }
     }
     async componentDidUpdate(preProps, preState, snapshot) {
         if (this.props.language !== preProps.language) {

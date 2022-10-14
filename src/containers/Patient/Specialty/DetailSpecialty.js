@@ -41,18 +41,51 @@ class DetailSpecialty extends Component {
                     }
                 }
             }
+            let dataProvince = resProvince.data;
+            if (dataProvince && dataProvince.length > 0) {
+                dataProvince.unshift({
+                    createedAt: null,
+                    keyMap: 'ALL',
+                    type: 'PROVINCE',
+                    valueEN: 'All',
+                    valueVI: 'Toàn Quốc',
+                });
+            }
             this.setState({
                 dataSpecialty: res.data,
                 arrDoctorId: arrDoctorId,
-                listProvince: resProvince.data,
+                listProvince: dataProvince ? dataProvince : [],
             });
         }
     }
 
     componentDidUpdate(preProps, preState, snapshot) {}
 
-    handleOnchangeSelect = (event) => {
-        console.log('check :', event.target.value);
+    handleOnchangeSelect = async (event) => {
+        if (this.props.match && this.props.match.params && this.props.match.params.id) {
+            let id = this.props.match.params.id;
+            let location = event.target.value;
+            let arrDoctorId = [];
+
+            let res = await getDeatilSpecialtyById({
+                id: id,
+                location: location,
+            });
+            if (res && res.errCode === 0) {
+                let data = res.data;
+                let arr = data.doctorSpecialty;
+                if (arr && arr.length > 0) {
+                    arr.map((item) => {
+                        arrDoctorId.push(item.doctorId);
+                        return arrDoctorId;
+                    });
+                }
+            }
+            this.setState({
+                dataSpecialty: res.data,
+                arrDoctorId: arrDoctorId,
+            });
+        }
     };
 
     render() {
@@ -90,7 +123,12 @@ class DetailSpecialty extends Component {
                                 return (
                                     <div className="infor-doctor" key={index}>
                                         <div className="content-left">
-                                            <ProfileDoctor doctorId={item} isShowDescription={true} />
+                                            <ProfileDoctor
+                                                doctorId={item}
+                                                isShowDescription={true}
+                                                isShowLinkDetail={true}
+                                                isShowPrice={false}
+                                            />
                                         </div>
                                         <div className="content-right">
                                             <DoctorSchedule detailDoctorFromParent={item} />
