@@ -1,0 +1,29 @@
+.manage-clinic-container {
+    .manage-clinic-title {
+        margin: 20px 0;
+        text-align: center;
+        font-size: 2rem;
+        font-weight: 600;
+    }
+    .form-input-manage-clinic {
+        display: flex;
+        padding-bottom: 20px;
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            padding-right: 20px;
+            label {
+                padding-bottom: 5px;
+            }
+        }
+    }
+    .btn-save-clinic {
+        margin-top: 20px;
+        padding: 5px 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: rgb(78, 97, 180);
+        font-size: 1.2rem;
+        color: white;
+    }
+}
