@@ -5,12 +5,33 @@ import { connect } from 'react-redux';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-
+import { getAllClinic } from '../../../services/userService';
+import { withRouter } from 'react-router';
 //
 import './Section.scss';
 
 class MedicalFacility extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            dataClinics: [],
+        };
+    }
+    async componentDidMount() {
+        let res = await getAllClinic();
+        if (res && res.errCode === 0) {
+            this.setState({
+                dataClinics: res.data ? res.data : [],
+            });
+        }
+    }
+    handleViewDetailClinic = (clinic) => {
+        if (this.props.history) {
+            this.props.history.push(`/detail-clinic/${clinic.id}`);
+        }
+    };
     render() {
+        let { dataClinics } = this.state;
         return (
             <div className="section-wrapper medical-facility">
                 <div className="section-specialty-content">
@@ -19,56 +40,30 @@ class MedicalFacility extends Component {
                 </div>
                 <div className="section-specialty-container">
                     <Slider {...this.props.settings}>
-                        <div className="slide-item">
-                            <div className="medical-facility-slide-item">
-                                <img
-                                    className="medical-facility-img-item"
-                                    src="https://image.thanhnien.vn/w1024/Uploaded/2022/tnabtw/2021_12_09/ta03-7305.jpg"
-                                    alt=""
-                                />
-                            </div>
-                            <div className="slide-description">Bệnh viện hữu nghị Việt - Đức</div>
-                        </div>
-                        <div className="slide-item">
-                            <div className="medical-facility-slide-item">
-                                <img
-                                    className="medical-facility-img-item"
-                                    src="https://image.thanhnien.vn/w1024/Uploaded/2022/tnabtw/2021_12_09/ta03-7305.jpg"
-                                    alt=""
-                                />
-                            </div>
-                            <div className="slide-description">Bệnh viện hữu nghị Việt - Đức</div>
-                        </div>
-                        <div className="slide-item">
-                            <div className="medical-facility-slide-item">
-                                <img
-                                    className="medical-facility-img-item"
-                                    src="https://image.thanhnien.vn/w1024/Uploaded/2022/tnabtw/2021_12_09/ta03-7305.jpg"
-                                    alt=""
-                                />
-                            </div>
-                            <div className="slide-description">Bệnh viện hữu nghị Việt - Đức</div>
-                        </div>
-                        <div className="slide-item">
-                            <div className="medical-facility-slide-item">
-                                <img
-                                    className="medical-facility-img-item"
-                                    src="https://image.thanhnien.vn/w1024/Uploaded/2022/tnabtw/2021_12_09/ta03-7305.jpg"
-                                    alt=""
-                                />
-                            </div>
-                            <div className="slide-description">Bệnh viện hữu nghị Việt - Đức</div>
-                        </div>
-                        <div className="slide-item">
-                            <div className="medical-facility-slide-item">
-                                <img
-                                    className="medical-facility-img-item"
-                                    src="https://image.thanhnien.vn/w1024/Uploaded/2022/tnabtw/2021_12_09/ta03-7305.jpg"
-                                    alt=""
-                                />
-                            </div>
-                            <div className="slide-description">Bệnh viện hữu nghị Việt - Đức</div>
-                        </div>
+                        {dataClinics &&
+                            dataClinics.length > 0 &&
+                            dataClinics.map((item, index) => {
+                                let imagebase64 = '';
+                                if (item.image) {
+                                    imagebase64 = new Buffer.from(item.image, 'base64').toString('binary');
+                                }
+                                return (
+                                    <div
+                                        className="slide-item"
+                                        key={index}
+                                        onClick={() => this.handleViewDetailClinic(item)}
+                                    >
+                                        <div className="medical-facility-slide-item">
+                                            <img
+                                                className="medical-facility-img-item"
+                                                src={imagebase64}
+                                                alt={item.name}
+                                            />
+                                        </div>
+                                        <div className="slide-description">{item.name}</div>
+                                    </div>
+                                );
+                            })}
                     </Slider>
                 </div>
             </div>
@@ -87,4 +82,4 @@ const mapDispatchToProps = (dispatch) => {
     return {};
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(MedicalFacility);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(MedicalFacility));

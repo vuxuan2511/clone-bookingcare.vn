@@ -57,30 +57,34 @@ class ManageDoctor extends Component {
         }
         if (preProps.language !== this.props.language) {
             let dataSelect = this.buildDataInput(this.props.allDoctors, 'USERS');
-            let { resPrice, resPayment, resProvince, resSpecialty } = this.props.allRequiredDoctorInfor;
+            let { resPrice, resPayment, resProvince, resSpecialty, resClinic } = this.props.allRequiredDoctorInfor;
             let dataSelectPrice = this.buildDataInput(resPrice, 'PRICE');
             let dataSelectPayment = this.buildDataInput(resPayment, 'PAYMENT');
             let dataSelectProvince = this.buildDataInput(resProvince, 'PROVINCE');
             let dataSelectSpecialty = this.buildDataInput(resSpecialty, 'SPECIALTY');
+            let dataSelectedClinic = this.buildDataInput(resClinic, 'CLINIC');
             this.setState({
                 listDoctor: dataSelect,
                 listPrice: dataSelectPrice,
                 listPayment: dataSelectPayment,
                 listProvince: dataSelectProvince,
                 listSpecialty: dataSelectSpecialty,
+                listClinic: dataSelectedClinic,
             });
         }
         if (preProps.allRequiredDoctorInfor !== this.props.allRequiredDoctorInfor) {
-            let { resPrice, resPayment, resProvince, resSpecialty } = this.props.allRequiredDoctorInfor;
+            let { resPrice, resPayment, resProvince, resSpecialty, resClinic } = this.props.allRequiredDoctorInfor;
             let dataSelectPrice = this.buildDataInput(resPrice, 'PRICE');
             let dataSelectPayment = this.buildDataInput(resPayment, 'PAYMENT');
             let dataSelectProvince = this.buildDataInput(resProvince, 'PROVINCE');
             let dataSelectSpecialty = this.buildDataInput(resSpecialty, 'SPECIALTY');
+            let dataSelectedClinic = this.buildDataInput(resClinic, 'CLINIC');
             this.setState({
                 listPrice: dataSelectPrice,
                 listPayment: dataSelectPayment,
                 listProvince: dataSelectProvince,
                 listSpecialty: dataSelectSpecialty,
+                listClinic: dataSelectedClinic,
             });
         }
     }
@@ -107,8 +111,7 @@ class ManageDoctor extends Component {
             nameClinic: this.state.nameClinic,
             addressClinic: this.state.addressClinic,
             note: this.state.note,
-            clinicId:
-                this.state.selectedClinic && this.state.selectedClinic.value ? this.state.selectedClinic.value : '',
+            clinicId: this.state.selectedClinic.value,
             specialtyId: this.state.selectedSpecialty.value,
         });
     };
@@ -186,7 +189,7 @@ class ManageDoctor extends Component {
                 addressClinic: '',
                 note: '',
                 selectedClinicId: '',
-                selectedSpecialty,
+                selectedSpecialty: '',
             });
         }
     };
@@ -233,6 +236,14 @@ class ManageDoctor extends Component {
             }
             if (type === 'SPECIALTY') {
                 inputData.map((item, index) => {
+                    let object = {};
+                    object.label = item.name;
+                    object.value = item.id;
+                    return result.push(object);
+                });
+            }
+            if (type === 'CLINIC') {
+                inputData.map((item) => {
                     let object = {};
                     object.label = item.name;
                     object.value = item.id;
