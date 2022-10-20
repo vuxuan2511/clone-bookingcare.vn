@@ -83,6 +83,12 @@ const getAllClinic = () => {
 const getDeatilClinicById = (data) => {
     return axios.get(`/api/get-detail-clinic-by-id?id=${data.id}`);
 };
+const getListPatientForDoctor = (data) => {
+    return axios.get(`/api/get-list-patient-for-doctor?doctorId=${data.doctorId}&date=${data.date}`);
+};
+const postSendRemedy = (data) => {
+    return axios.post('/api/send-remedy', data);
+};
 //
 export {
     handleLoginApi,
@@ -107,4 +113,6 @@ export {
     createNewClinic,
     getAllClinic,
     getDeatilClinicById,
+    getListPatientForDoctor,
+    postSendRemedy,
 };
