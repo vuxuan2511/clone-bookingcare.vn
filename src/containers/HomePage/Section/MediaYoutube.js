@@ -15,7 +15,7 @@ class MediaYoutube extends Component {
                         <iframe
                             width="100%"
                             height="350"
-                            src="https://www.youtube.com/embed/6FofOeHgqW0"
+                            src="https://www.youtube.com/embed/JHuEUjgmF_c"
                             title="TRUNG AHRI | GÁNH TEAM LÀ MỘT VIỆC KHÔNG BAO GIỜ LÀ DỄ DÀNG"
                             frameBorder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

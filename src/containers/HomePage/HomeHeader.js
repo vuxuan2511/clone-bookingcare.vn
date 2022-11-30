@@ -7,6 +7,13 @@ import { LANGUAGES } from '../../utils/constant';
 import { changeLanguageApp } from '../../store/actions/appActions';
 
 class HomeHeader extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            searchValue: '',
+            iconClear: false,
+        };
+    }
     changeLanguage = (language) => {
         this.props.changeLanguageAppRedux(language);
     };
@@ -17,6 +24,19 @@ class HomeHeader extends Component {
         }
     };
     //
+    OnChangeInput = (e) => {
+        let value = e.target.value;
+        this.setState({
+            searchValue: value,
+            iconClear: true,
+        });
+    };
+    handleClearInputSearch = (e) => {
+        this.setState({
+            searchValue: '',
+            iconClear: false,
+        });
+    };
     render() {
         let languagess = this.props.language;
 
@@ -98,8 +118,19 @@ class HomeHeader extends Component {
                             </div>
                             <div className="header-search">
                                 <i className="btn-search fas fa-search"></i>
-                                <input type="text" className="search-input" placeholder="Tìm phòng khám" />
-                                <i className="btn-clear fas fa-times"></i>
+                                <input
+                                    type="text"
+                                    className="search-input"
+                                    placeholder="Tìm phòng khám"
+                                    value={this.state.searchValue}
+                                    onChange={(e) => this.OnChangeInput(e)}
+                                />
+                                {this.state.iconClear === true && (
+                                    <i
+                                        className="btn-clear fas fa-times"
+                                        onClick={(e) => this.handleClearInputSearch(e)}
+                                    ></i>
+                                )}
                             </div>
                         </div>
                         <div className="banner-down">

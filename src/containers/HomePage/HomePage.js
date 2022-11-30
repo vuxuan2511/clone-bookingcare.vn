@@ -31,7 +31,7 @@ class HomePage extends Component {
 
                 <SectionDoctor settings={settings} />
 
-                <HandBook settings={settings} />
+                {/* <HandBook settings={settings} /> */}
 
                 <MediaYoutube />
 
